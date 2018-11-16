@@ -2,9 +2,12 @@ package com.nemanja.springboot.web.Springbootapp.model;
 
 import java.util.Date;
 
+import javax.validation.constraints.Size;
+
 public class Todo {
     private int id;
     private String user;
+    @Size(min=10, message="Unesite najmanje 10 karaktera!")
     private String desc;
     private Date targetDate;
     private boolean isDone;
