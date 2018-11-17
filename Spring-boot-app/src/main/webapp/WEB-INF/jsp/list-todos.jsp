@@ -8,7 +8,7 @@
 <th>Opis</th>
 <th>Datum</th>
 <th>Zavrseno</th>
-<th>Update</th>
+<th>Azuriranje</th>
 <th>Obrisati</th>
 </tr>
 </thead>
@@ -18,13 +18,13 @@
 <td>${todo.desc}</td>
 <td><fmt:formatDate value="${todo.targetDate}" pattern="dd/MM/yyyy"/></td>
 <td>${todo.done}</td>
-<td><a type="button" class="btn  btn-success" href="/update-todo?id=${todo.id}">Update</a></td>
+<td><a type="button" class="btn  btn-success" href="/update-todo?id=${todo.id}">Azuriranje</a></td>
 <td><a type="button" class="btn  btn-warning" href="/delete-todo?id=${todo.id}">Obrisati</a></td>
 </tr>
 </c:forEach>
 </tbody>
 </table>
 <div>
-<a class="button" href="/add-todo">Dodajte todo</a></div>
+<a class="button" href="/add-todo">Dodajte obavezu</a></div>
 </div>
 <%@ include file="common/footer.jspf" %>
