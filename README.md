@@ -10,5 +10,5 @@ Password: 1234
 
 Future plans for application: 
 
-Develop database (JPA/Hibernate),
+Develop database (MySql, JPA/Hibernate),
 Set user roles: Admin, User.
