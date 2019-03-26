@@ -1,4 +1,4 @@
-package com.nemanja.springboot.web.Springbootapp.security;
+package com.nemanja.springboot.web.Springbootapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
