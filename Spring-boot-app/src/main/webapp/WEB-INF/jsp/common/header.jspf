@@ -3,7 +3,11 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
+<<<<<<< HEAD
 <title>To do list</title>
+=======
+<title>Liste obaveza</title>
+>>>>>>> branch 'master' of https://github.com/NemanjaDj/Spring-boot-app.git
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
 	    		rel="stylesheet">
 </head>
