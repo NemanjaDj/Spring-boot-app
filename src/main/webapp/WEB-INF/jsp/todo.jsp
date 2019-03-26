@@ -1,7 +1,6 @@
 <%@ include file="common/header.jspf" %>
 <%@ include file="common/navigation.jspf" %>
 	<div class="container">
-	
 		Add to-do for ${username}
 
 		<form:form method="post" modelAttribute="todo">
