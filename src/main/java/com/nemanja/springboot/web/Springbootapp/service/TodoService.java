@@ -12,6 +12,7 @@ import com.nemanja.springboot.web.Springbootapp.model.User;
 
 @Service
 public class TodoService {
+	
 
 	@Autowired
 	private TodoDao todoDao;

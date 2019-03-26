@@ -1,8 +1,9 @@
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf"%>
 <div class="container">
+	<!-- list of user todos -->
 	<table class="table table-striped">
-		<caption>Your to-dos ${name}</caption>
+		<caption>Your to-dos ${name} </caption>
 		<thead>
 			<tr>
 				<th>Description</th>

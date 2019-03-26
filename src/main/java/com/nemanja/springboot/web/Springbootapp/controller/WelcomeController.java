@@ -22,6 +22,7 @@ import com.nemanja.springboot.web.Springbootapp.service.UserService;
 @SessionAttributes("name")
 public class WelcomeController {
 	
+	
 	@Autowired
 	private UserService userService;
 
@@ -33,6 +34,7 @@ public class WelcomeController {
 		return "welcome";
 	}
 
+	
 	@GetMapping("/login")
 	public String loginPage() {
 		return "login-form";

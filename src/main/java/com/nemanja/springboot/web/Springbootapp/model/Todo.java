@@ -15,6 +15,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name="to_do")
 public class Todo {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="todoid")
