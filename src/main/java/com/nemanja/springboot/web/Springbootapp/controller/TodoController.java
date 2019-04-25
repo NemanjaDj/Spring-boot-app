@@ -46,30 +46,25 @@ public class TodoController {
 
 	@GetMapping("/list-todos")
 	public String showTodos(ModelMap model) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String username = auth.getName();
-		User user = userService.findByUsername(username);
+		User user = userService.findByUsername(loggingInUsername());
 		model.put("todos", service.retrieveTodos(user));
 		return "list-todos";
 	}
 
 	@GetMapping("/add-todo")
 	public String showTodoPage(Model model) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String name = auth.getName();
-		model.addAttribute("username", name);
-		model.addAttribute("todo", new Todo(userService.findByUsername(name), "", new Date(), false));
+		
+		model.addAttribute("username", loggingInUsername());
+		model.addAttribute("todo", new Todo(userService.findByUsername(loggingInUsername()), "", new Date(), false));
 		return "todo";
 	}
 
 	@PostMapping("/add-todo")
 	public String AddTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String username = auth.getName();
 		if (result.hasErrors()) {
 			return "todo";
 		}
-		service.addTodo(userService.findByUsername(username), todo.getDesc(), todo.getTargetDate(), false);
+		service.addTodo(userService.findByUsername(loggingInUsername()), todo.getDesc(), todo.getTargetDate(), false);
 		return "redirect:/list-todos";
 	}
 
@@ -83,6 +78,7 @@ public class TodoController {
 	public String showUpdateTodoPage(@RequestParam int id, ModelMap model) {
 		Todo todo = service.retrieveTodo(id);
 		model.put("todo", todo);
+		model.addAttribute("username", loggingInUsername());
 		return "todo";
 	}
 
@@ -93,5 +89,11 @@ public class TodoController {
 		}
 		service.update(todo);
 		return "redirect:/list-todos";
+	}
+	
+	public String loggingInUsername() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String name = auth.getName();
+		return name;
 	}
 }

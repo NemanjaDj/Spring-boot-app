@@ -28,9 +28,7 @@ public class WelcomeController {
 
 	@GetMapping("/")
 	public String showWelcomePage(ModelMap model) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String username = auth.getName();
-		model.addAttribute("name", username);
+		model.addAttribute("name", loggingInUsername());
 		return "welcome";
 	}
 
@@ -57,12 +55,10 @@ public class WelcomeController {
 		userService.saveUser(user);
 		return "redirect:/login/";
 	}
-	/*
-	 * method return (session) user's name
-	 * 
-	 * private String getLoggedinUserName() { Object principal =
-	 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	 * if(principal instanceof UserDetails) { return
-	 * ((UserDetails)principal).getUsername(); } return principal.toString(); }
-	 */
+	
+	public String loggingInUsername() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String name = auth.getName();
+		return name;
+	}
 }
